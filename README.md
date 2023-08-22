@@ -18,13 +18,13 @@ Next, take a look at the `hardhat.config.js` file. Specifically this line:
 ```javascript
 module.exports = {
   solidity: "0.8.17",
-  defaultNetwork: 'localhost' // <-- this one!
+  defaultNetwork: "localhost", // <-- this one!
 };
 ```
 
-The `defaultNetwork` is going to set our scripts to run, by default, against our local node. 
+The `defaultNetwork` is going to set our scripts to run, by default, against our local node.
 
-Let's go ahead and run our local node. You can do so by running `npx hardhat node`. This will spin up a local, persistent hardhat blockchain on your port 8545. 
+Let's go ahead and run our local node. You can do so by running `npx hardhat node`. This will spin up a local, persistent hardhat blockchain on your port 8545.
 
 ## 3. Deploy a Contract
 
@@ -49,18 +49,18 @@ We've deployed `Game1`, now its time to win!
 
 ## 4. Win the Game
 
-Use the address you deployed your contract from step 3. Paste it into the `scripts/win.js` file where the comments direct you to. 
+Use the address you deployed your contract from step 3. Paste it into the `scripts/win.js` file where the comments direct you to.
 
 You can keep the contract name as `Game1` for now. When you attempt `Game2` later on, you'll need to change this! Hardhat uses this contract name to go fetch the ABI for the contract from the `artifacts` folder.
 
-Now run `npx hardhat run scripts/win.js`, this will go ahead and call `win` on your `Game1` contract. If you're successful you should see a transaction receipt with a `Winner` event inside of the `events` array. 
+Now run `npx hardhat run scripts/win.js`, this will go ahead and call `win` on your `Game1` contract. If you're successful you should see a transaction receipt with a `Winner` event inside of the `events` array.
 
 ## 5. Play Game2 through Game5
 
 Try each game! See if you can emit the Winner event on each one. Remember to:
 
 1. Change the `contractName` in `scripts/deploy.js`
-2. Deploy each new game to your local hardhat environment 
+2. Deploy each new game to your local hardhat environment
 3. Copy the address into the `scripts/win.js`
 4. Change the `contractName` in `scripts/win.js`
 5. Modify the win script to succesfully complete the challenge. You may need to run multiple transactions in order to win each game!
@@ -69,7 +69,7 @@ Try each game! See if you can emit the Winner event on each one. Remember to:
 
 ## Common Errors
 
-1. **Gas Estimation Error** - if you see a gas estimation error, this means that the blockchain node was unable to estimate the gas. The reason for this is often because the transaction reverted! 
+1. **Gas Estimation Error** - if you see a gas estimation error, this means that the blockchain node was unable to estimate the gas. The reason for this is often because the transaction reverted!
 2. **`game.[method]` is not a function** - this typically happens because you forgot to change the contract name. More technically, there's function that you think should exist on the contract, but hardhat is not able to call it because the ABI it fetched from the `artifacts` folder does not have that method defined.
 
 ## Use Hardhat Console Log

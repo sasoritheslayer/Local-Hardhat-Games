@@ -1,6 +1,6 @@
 // replace the name of the contract with which one you want to deploy!
-const contractName = "Game1";
-let gameAddr;
+const contractName = "Game4";
+
 async function main() {
   const Game = await hre.ethers.getContractFactory(contractName);
   // if you need to add constructor arguments for the particular game, add them here:
